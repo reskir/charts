@@ -13,3 +13,6 @@ for reference: https://yarnpkg.com/lang/en/docs/install/
 `yarn start`
 
 Open app locally: http://localhost:5001
+
+
+![alt text](img.png)
