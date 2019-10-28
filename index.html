@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CSV chart</title>
+    <style>
+        #wrapper {
+            height: 1000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <canvas id="chart"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script>
+        function makeChart(data) {
+            // {
+            //   bad users: "162"
+            //   date: "2019.10.21"
+            //   good users: "504"
+            //   location: "emea"
+            //   total users: "666"
+            // }
+
+            const {
+                columns
+            } = data;
+
+            const labels = data.map(function(d) {
+                return `${d.location}, ${d.date}`;
+            });
+
+            const preparedData = data.filter(d => {
+                return typeof d === "object";
+            });
+
+            const chart = new Chart("chart", {
+                type: "line",
+                options: {
+                    maintainAspectRatio: true,
+                    legend: {
+                        display: false
+                    }
+                },
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Bad users",
+                        data: preparedData.map(d => d["bad users"]),
+                        backgroundColor: "rgba(221, 75, 57, 0.75)",
+                        pointBackgroundColor: "red",
+                    }, {
+                        label: "Good users",
+                        data: preparedData.map(d => d["good users"]),
+                        backgroundColor: "rgba(25,157,43,0.75)",
+                        pointBackgroundColor: "green",
+                    }]
+                }
+            });
+        }
+
+        // Request data using D3
+        d3.csv("./data/accounts_s_report.csv").then(makeChart);
+    </script>
+</body>
+
+</html>
