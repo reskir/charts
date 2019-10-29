@@ -22,7 +22,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script>
         function makeChart(data) {
-            // {
+            //Array of
+            //{
             //   bad users: "162"
             //   date: "2019.10.21"
             //   good users: "504"
@@ -56,17 +57,17 @@
                         label: "Bad users",
                         data: preparedData.map(d => d["bad users"]),
                         backgroundColor: "rgba(221, 75, 57, 1)",
-                        pointBackgroundColor: "red",
+                        pointBackgroundColor: "red"
                     }, {
                         label: "Good users",
                         data: preparedData.map(d => d["good users"]),
                         backgroundColor: "rgba(25,157,43, 1)",
-                        pointBackgroundColor: "green",
+                        pointBackgroundColor: "green"
                     }, {
                         label: "Total users",
                         data: preparedData.map(d => d["total users"]),
-                        backgroundColor: "rgba(0,0,0,1)",
-                        pointBackgroundColor: "black",
+                        backgroundColor: "rgba(11, 114, 241, 1)",
+                        pointBackgroundColor: "rgba(11, 114, 241, 1)"
                     }]
                 }
             });
