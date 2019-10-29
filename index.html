@@ -47,7 +47,7 @@
                 options: {
                     maintainAspectRatio: true,
                     legend: {
-                        display: false
+                        display: true
                     }
                 },
                 data: {
@@ -55,13 +55,18 @@
                     datasets: [{
                         label: "Bad users",
                         data: preparedData.map(d => d["bad users"]),
-                        backgroundColor: "rgba(221, 75, 57, 0.75)",
+                        backgroundColor: "rgba(221, 75, 57, 1)",
                         pointBackgroundColor: "red",
                     }, {
                         label: "Good users",
                         data: preparedData.map(d => d["good users"]),
-                        backgroundColor: "rgba(25,157,43,0.75)",
+                        backgroundColor: "rgba(25,157,43, 1)",
                         pointBackgroundColor: "green",
+                    }, {
+                        label: "Total users",
+                        data: preparedData.map(d => d["total users"]),
+                        backgroundColor: "rgba(0,0,0,1)",
+                        pointBackgroundColor: "black",
                     }]
                 }
             });

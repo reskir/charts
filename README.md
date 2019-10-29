@@ -15,4 +15,9 @@ for reference: https://yarnpkg.com/lang/en/docs/install/
 Open app locally: http://localhost:5001
 
 
+You should see `line` chart:
+
 ![alt text](img.png)
+
+For charts documentation, please refer to oficial `ChartJS` docs:
+https://www.chartjs.org/docs/latest/
